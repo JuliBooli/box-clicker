@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {useState} from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const [addedValue, setAddedValue] = useState(1);
+
+    const [amountOfButtons, setamountOfButtons] = useState(1);
+
+    const [buttonLevel, setButtonLevel] = useState(1);
+
+    return (
+        <>
+            <h1>Points Earned: {Math.floor(count)}</h1>
+            <h2>Box Clicker</h2>
+            <a className="button">
+                {Array.from( {length: amountOfButtons}).map((_, i) =>
+                    <div>
+                        <button key={i} className="button" onClick={() => setCount((count) => count + addedValue)}/>
+                        <button className={"buyButton"} onClick={() => setButtonLevel((buttonLevel) => buttonLevel + 1)}>
+                            Upgrade Button
+                        </button>
+                    </div>
+                )}
+            </a>
+            <button className={"upgradeButton"} onClick={() => setAddedValue((addedValue) => buttonLevel/10 * addedValue + 1)}>
+                Upgrade
+            </button>
+            <button className={"buyButton"} onClick={() => setamountOfButtons((amountOfButtons) => amountOfButtons + 1)}>
+                Buy Box
+            </button>
+        </>
+    )
 }
 
 export default App
