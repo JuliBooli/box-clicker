@@ -1,18 +1,21 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: auto;
   text-align: center;
 }
 
 .button {
   height: 4em;
+  margin: 2em;
   padding: 4em;
   will-change: filter;
   transition: filter 300ms;
 }
 .button:hover {
   filter: drop-shadow(0 0 2em rgba(7, 27, 224, 0.67));
+}
+
+.buyButton:hover{
+  filter: drop-shadow(0 0 2em rgba(210, 7, 224, 0.67));
 }
 
 @keyframes button-spin {
@@ -30,6 +33,19 @@
   }
 }
 
+.upgradeButton{
+  margin: 4em;
+}
+
 .upgradeButton:hover{
   filter: drop-shadow(0 0 2em rgba(54, 224, 7, 0.67));
+}
+
+.menu{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8em;
+  text-align: center;
 }
